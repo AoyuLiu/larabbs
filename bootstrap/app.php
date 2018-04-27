@@ -1,5 +1,5 @@
 <?php
-require_once_DIR_.'/helpers.php';
+require_once __DIR__. '/helpers.php';
 
 /*
 |--------------------------------------------------------------------------
