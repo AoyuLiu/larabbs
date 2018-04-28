@@ -18,6 +18,10 @@ class SeedCategoriesData extends Migration
               'description' => '开发技巧、推荐扩展包等',
           ],
           [
+              'name'        => '问答',
+              'description' => '请保持友善，互帮互助',
+          ],
+          [
               'name'        => '公告',
               'description' => '站点公告',
           ],
