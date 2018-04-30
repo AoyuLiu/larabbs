@@ -18,4 +18,10 @@ class ReplyObserver
     {
         //
     }
+
+    public function created(Reply $reply)
+    {
+        $reply->topic->increment('reply_count', 1);
+    }
+
 }
