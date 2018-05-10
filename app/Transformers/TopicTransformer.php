@@ -5,11 +5,13 @@ use App\Models\Topic;
 use League\Fractal\TransformerAbstract;
 
 class TopicTransformer extends TransformerAbstract
-{
+{     
+      protected $availableIncludes = ['user', 'category'];
+
 	public function transform(Topic $topic)
 	{
 		return [
-			'id' => $topic->id,
+		'id' => $topic->id,
             'title' => $topic->title,
             'body' => $topic->body,
             'user_id' => (int) $topic->user_id,
@@ -24,4 +26,14 @@ class TopicTransformer extends TransformerAbstract
 
 		];
 	}
+
+      public function includeUser(Topic $topic)
+      {
+            return $this->item($topic->user, new UserTransformer());
+      }
+
+      public function includeCategory(Topic $topic)
+      {
+            return $this->item($topic->category, new CategoryTransformer());
+      }
 }
