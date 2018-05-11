@@ -67,7 +67,11 @@ $api->version('v1', [
                 ->name('api.topics.store');
             $api->patch('topics/{topic}','TopicsController@update')
                 ->name('api.topics.update');
-            $api->delete('topics/{topic}','TopicsController@destroy')->name('api.topics.destroy');
+            $api->delete('topics/{topic}','TopicsController@destroy')
+                ->name('api.topics.destroy');
+            //发布回复
+            $api->post('topics/{topic}/replies','RepliesController@store')
+                ->name('api.topics.replies.store');
         });
     });
 });
